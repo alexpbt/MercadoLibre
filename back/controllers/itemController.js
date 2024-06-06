@@ -7,13 +7,13 @@ import getMeLiItemDetails from "../services/getItemDetails.js";
 //@access public
 
 const getItems = expressAsyncHandler(async (req, res) => {
-  const productQuery = req.query.q;
-  const items = await getMeLiItems(productQuery);
+	const productQuery = req.query.q;
+	const items = await getMeLiItems(productQuery);
 
-  res.status(200).json({
-    message: "Getting data from endpoint",
-    items,
-  });
+	res.status(200).json({
+		message: "Getting data from endpoint",
+		items,
+	});
 });
 
 //@desc Get item details by ID from endpoint
@@ -21,13 +21,13 @@ const getItems = expressAsyncHandler(async (req, res) => {
 //@access public
 
 const getItemDetails = expressAsyncHandler(async (req, res) => {
-  const productId = req.params.id;
-  const item = await getMeLiItemDetails(productId);
+	const productId = req.params.id;
+	const items = await getMeLiItemDetails(productId);
 
-  res.status(200).json({
-    message: "Getting item details data from endpoint",
-    item,
-  });
+	res.status(200).json({
+		message: "Getting item details data from endpoint",
+		items,
+	});
 });
 
 export { getItems, getItemDetails };

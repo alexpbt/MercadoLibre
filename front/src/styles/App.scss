@@ -1,0 +1,105 @@
+.App {
+	margin: 0 auto;
+}
+
+.nav-header {
+	background-color: #ffe600;
+	justify-content: center;
+	width: 100%;
+}
+
+.nav-content {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(5px, 1fr));
+	grid-column-gap: 24px;
+	margin: 0 28px;
+	padding-block: 18px;
+
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(12, minmax(5px, 1fr));
+		margin: 0 72px;
+	}
+
+	@media (min-width: 1440px) {
+		margin: 0 auto;
+		max-width: 1296px;
+	}
+}
+
+.meli-logo,
+.meli-searchbar {
+	display: flex;
+	flex-direction: row;
+}
+
+.meli-logo {
+	grid-column: 1;
+	height: 34px;
+	padding-block: 4px;
+
+	@media (min-width: 1024px) {
+		grid-column: 2 / 3;
+	}
+
+	@media (min-width: 1440px) {
+	}
+}
+
+.meli-searchbar {
+	height: 40px;
+	grid-column: 2 / -1;
+	margin-inline-start: -24px;
+	position: relative;
+
+	@media (min-width: 1024px) {
+		grid-column: 3 / -2;
+		margin-inline-start: -24px;
+	}
+
+	&__form {
+		display: flex;
+		height: 100%;
+		position: relative;
+		width: 100%;
+
+		&-input {
+			border-color: rgba(0, 0, 0, 0);
+			border-style: solid;
+			border-radius: 2px;
+			border-width: 1.5px;
+			box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+			padding: 10px 60px 10px 15px;
+			width: 100%;
+
+			&:focus {
+				border-style: solid;
+				border-color: #3483fa;
+				border-width: 1.5px;
+			}
+
+			&:focus-visible {
+				outline: none;
+			}
+		}
+
+		&-button {
+			border: none;
+			background-image: url("../../public/assets/meli-searchbar-icon.png");
+			background-color: #eeeeee;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			cursor: pointer;
+			height: 38px;
+			position: absolute;
+			margin-inline-end: 73px;
+			left: calc(100% - 39px);
+			top: 1px;
+			width: 38px;
+
+			&:hover {
+				background-color: #999999;
+			}
+		}
+	}
+}

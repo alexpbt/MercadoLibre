@@ -1,0 +1,50 @@
+.items-list {
+	background-color: #eeeeee;
+
+	&__list {
+		list-style-type: none;
+		grid-column: 2 / -2;
+
+		&-element {
+			background-color: #ffffff;
+			border-bottom: thin solid #eee;
+			padding: 16px;
+			position: relative;
+			width: 100%;
+
+			&-link {
+				color: #333333;
+				display: flex;
+				text-decoration: none;
+				width: 100%;
+
+				&:visited {
+					color: #333333;
+				}
+			}
+
+			&-img {
+				border-radius: 4px;
+				height: 180px;
+				margin-inline-end: 16px;
+				width: 180px;
+			}
+
+			&-info {
+				&-dolar {
+					font-size: 24px;
+					padding-right: 0.2em;
+				}
+
+				&-value {
+					font-size: 24px;
+				}
+
+				&-title {
+					color: #999999;
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

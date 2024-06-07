@@ -1,4 +1,5 @@
 .App {
+	font-size: 24px;
 	margin: 0 auto;
 }
 
@@ -8,7 +9,7 @@
 	width: 100%;
 }
 
-.nav-content {
+section {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(5px, 1fr));
 	grid-column-gap: 24px;

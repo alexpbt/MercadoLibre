@@ -5,9 +5,9 @@ import App from "./App";
 import SearchResults from "./views/SearchResults";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetails from "./views/ItemDetails";
+import Header from "./components/Header";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log("Routing...");
 root.render(
 	<BrowserRouter>
 		<Routes>

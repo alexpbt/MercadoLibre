@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { FetchData } from "../services/FetchDataService";
+import { fetchData } from "../services/FetchDataService";
+import Header from "../components/Header";
+
 import "../styles/SearchResults.scss";
 
 const SearchResults = () => {
@@ -13,9 +15,11 @@ const SearchResults = () => {
 		const fetchDataAsync = async () => {
 			setLoading(true);
 			try {
-				const results = await FetchData(`/api/items?q=${query}`);
+				const results = await fetchData(`/api/items?q=${query}`);
 
 				setResults(results.items.items);
+			} catch (error) {
+				console.error(error);
 			} finally {
 				setLoading(false);
 			}
@@ -34,39 +38,42 @@ const SearchResults = () => {
 		minimumFractionDigits: 0,
 	});
 
-	console.log(results);
-
-	return (
-		<section className="items-list">
-			<ul className="items-list__list">
-				{results.map((item, index) => (
-					<li key={index} className="items-list__list-element">
-						<Link
-							to={"/items/" + item.id}
-							state={{ id: item.id }}
-							className="items-list__list-element-link"
-						>
-							<img
-								className="items-list__list-element-img"
-								src={item.picture}
-								alt={item.name}
-							/>
-							<div className="items-list__list-element-info">
-								<span
-									aria-hidden="true"
-									className="items-list__list-element-info-value"
-								>
-									{formatter.format(Math.round(item.price.amount))}
-								</span>
-								<p className="items-list__list-element-info-title">
-									{item.title}
-								</p>
-							</div>
-						</Link>
-					</li>
-				))}
-			</ul>
-		</section>
+	return loading ? (
+		<p>Loading...</p>
+	) : (
+		<>
+			<Header />
+			<section className="items-list">
+				<ul className="items-list__list">
+					{results.map((item, index) => (
+						<li key={index} className="items-list__list-element">
+							<Link
+								to={"/items/" + item.id}
+								state={{ id: item.id }}
+								className="items-list__list-element-link"
+							>
+								<img
+									className="items-list__list-element-img"
+									src={item.picture}
+									alt={item.name}
+								/>
+								<div className="items-list__list-element-info">
+									<span
+										aria-hidden="true"
+										className="items-list__list-element-info-value"
+									>
+										{formatter.format(Math.round(item.price.amount))}
+									</span>
+									<p className="items-list__list-element-info-title">
+										{item.title}
+									</p>
+								</div>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</section>
+		</>
 	);
 };
 

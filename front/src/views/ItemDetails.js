@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { FetchData } from "../services/FetchDataService";
+import { fetchData } from "../services/FetchDataService";
 import "../styles/ItemDetails.scss";
+import Header from "../components/Header";
 
 const ItemDetails = () => {
 	const location = useLocation();
@@ -13,9 +14,11 @@ const ItemDetails = () => {
 		const fetchDataAsync = async () => {
 			setLoading(true);
 			try {
-				const results = await FetchData(`/api/items/${idData}`);
+				const results = await fetchData(`/api/items/${idData}`);
 
 				setResults(results.items.item);
+			} catch (error) {
+				console.error(error);
 			} finally {
 				setLoading(false);
 			}
@@ -34,32 +37,35 @@ const ItemDetails = () => {
 		minimumFractionDigits: 0,
 	});
 
-	console.log(results);
-
 	return loading ? (
 		<p>Loading...</p>
 	) : (
-		<section className="item-detail">
-			<div className="item-detail__wrapper">
-				<div className="item-detail__wrapper-img">
-					<img src={results.picture} alt={results.title} />
+		<>
+			<Header />
+			<section className="item-detail">
+				<div className="item-detail__wrapper">
+					<div className="item-detail__wrapper-img">
+						<img src={results.picture} alt={results.title} />
+					</div>
+					<div className="item-detail__wrapper-info">
+						<span className="item-detail__wrapper-info-eyebrow">
+							{results.condition}
+						</span>
+						<h2 className="item-detail__wrapper-info-title">{results.title}</h2>
+						<span className="item-detail__wrapper-info-price">
+							{formatter.format(Math.round(results.price?.amount))}
+						</span>
+						<button className="item-detail__wrapper-info-button">
+							Comprar
+						</button>
+					</div>
+					<div className="item-detail__wrapper-desc">
+						<h3>Descripción del producto</h3>
+						<p>{results.description}</p>
+					</div>
 				</div>
-				<div className="item-detail__wrapper-info">
-					<span className="item-detail__wrapper-info-eyebrow">
-						{results.condition}
-					</span>
-					<h2 className="item-detail__wrapper-info-title">{results.title}</h2>
-					<span className="item-detail__wrapper-info-price">
-						{formatter.format(Math.round(results.price?.amount))}
-					</span>
-					<button className="item-detail__wrapper-info-button">Comprar</button>
-				</div>
-				<div className="item-detail__wrapper-desc">
-					<h3>Descripción del producto</h3>
-					<p>{results.description}</p>
-				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 

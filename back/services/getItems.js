@@ -1,17 +1,15 @@
 import axios from "axios";
 
-const getMeLiItems = async (query) => {
-	const response = await axios
-		.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`)
-		.catch(function (error) {
-			// manejar error
-			console.log(error);
-		})
-		.finally(function () {
-			// siempre sera executado
-		});
+const getMeLiItems = async (query, limit) => {
+	try {
+		const response = await axios.get(
+			`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`
+		);
 
-	return parseItemsData(response.data);
+		return parseItemsData(response.data);
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 const parseItemsData = (itemsData) => {

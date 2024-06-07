@@ -8,7 +8,7 @@ import getMeLiItemDetails from "../services/getItemDetails.js";
 
 const getItems = expressAsyncHandler(async (req, res) => {
 	const productQuery = req.query.q;
-	const items = await getMeLiItems(productQuery);
+	const items = await getMeLiItems(productQuery, 4);
 
 	res.status(200).json({
 		message: "Getting data from endpoint",

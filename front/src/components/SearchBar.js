@@ -16,13 +16,24 @@ function SearchBar() {
 		}
 	};
 
+	const HandleSearchButtonClick = (e) => {
+		e.preventDefault();
+
+		if (query !== "") {
+			searchItems();
+		}
+	};
+
 	const searchItems = () => {
-		console.log("Navigating to results page from SearchBar");
 		navigate(`/items?search=${query}`);
 	};
 
-	const formSubmitHandler = () => {
-		console.log("Form submitted :)");
+	const formSubmitHandler = (e) => {
+		e.preventDefault();
+
+		if (query !== "") {
+			searchItems();
+		}
 	};
 
 	return (
@@ -35,7 +46,11 @@ function SearchBar() {
 					onKeyDown={keyboardEnterHandler}
 					placeholder="Buscar productos, marcas y más... "
 				/>
-				<button type="submit" className="meli-searchbar__form-button"></button>
+				<button
+					onClick={HandleSearchButtonClick}
+					type="submit"
+					className="meli-searchbar__form-button"
+				></button>
 			</form>
 		</div>
 	);

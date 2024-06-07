@@ -1,23 +1,23 @@
 import axios from "axios";
 
 const getMeLiItemDetails = async (id) => {
-	const [itemDetailsResponse, itemDescriptionResponse] = await Promise.all([
-		axios.get(`https://api.mercadolibre.com/items/${id}`),
-		axios.get(`https://api.mercadolibre.com/items/${id}/description`),
-	])
-		.catch(function (error) {
-			// manejar error
-			console.log(error);
-		})
-		.finally(function () {
-			// siempre sera executado
-		});
+	try {
+		const [itemDetailsResponse, itemDescriptionResponse] = await Promise.all([
+			axios.get(`https://api.mercadolibre.com/items/${id}`),
+			axios.get(`https://api.mercadolibre.com/items/${id}/description`),
+		]);
 
-	console.log(
-		parseItemData(itemDetailsResponse.data, itemDescriptionResponse.data)
-	);
+		console.log(
+			parseItemData(itemDetailsResponse.data, itemDescriptionResponse.data)
+		);
 
-	return parseItemData(itemDetailsResponse.data, itemDescriptionResponse.data);
+		return parseItemData(
+			itemDetailsResponse.data,
+			itemDescriptionResponse.data
+		);
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 const parseItemData = (item, itemDescription) => {

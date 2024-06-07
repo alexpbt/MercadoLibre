@@ -1,15 +1,19 @@
 .items-list {
 	&__list {
+		grid-column: 1 / -1;
 		list-style-type: none;
-		grid-column: 2 / -2;
 		padding-inline-start: 0;
+
+		@media (min-width: 1024px) {
+			grid-column: 2 / -2;
+		}
 
 		&-element {
 			background-color: #ffffff;
 			border-bottom: thin solid #eee;
+			max-width: 100%;
 			padding: 16px;
 			position: relative;
-			max-width: 100%;
 
 			&-link {
 				color: #333333;
@@ -36,8 +40,8 @@
 				&-value {
 					display: block;
 					font-size: 24px;
-					padding-right: 0.2em;
 					padding-bottom: 32px;
+					padding-inline-end: 0.2em;
 					position: relative;
 				}
 

@@ -1,4 +1,4 @@
-async function FetchData(fetchUrl) {
+async function fetchData(fetchUrl) {
 	try {
 		const result = await fetch(fetchUrl);
 		const data = await result.json();
@@ -9,4 +9,4 @@ async function FetchData(fetchUrl) {
 	}
 }
 
-export { FetchData };
+export { fetchData };

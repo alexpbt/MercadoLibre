@@ -20,7 +20,7 @@ const getMeLiItemDetails = async (id) => {
 	return parseItemData(itemDetailsResponse.data, itemDescriptionResponse.data);
 };
 
-const parseItemData = (itemDetails, itemDescription) => {
+const parseItemData = (item, itemDescription) => {
 	const author = {
 		name: "Fabian",
 		lastname: "Romero",
@@ -29,17 +29,17 @@ const parseItemData = (itemDetails, itemDescription) => {
 	return {
 		author,
 		item: {
-			id: itemDetails.id,
-			title: itemDetails.title,
+			id: item.id,
+			title: item.title,
 			price: {
-				currency: itemDetails.currency_id,
-				amount: 0,
+				currency: item.currency_id,
+				amount: item.price,
 				decimals: 0,
 			},
-			picture: itemDetails.pictures[0].secure_url,
-			condition: itemDetails.condition,
-			free_shipping: itemDetails.shipping.free_shipping,
-			sold_quantity: itemDetails.available_quantity,
+			picture: item.pictures[0].secure_url,
+			condition: item.condition,
+			free_shipping: item.shipping.free_shipping,
+			sold_quantity: item.available_quantity,
 			description: itemDescription.plain_text,
 		},
 	};

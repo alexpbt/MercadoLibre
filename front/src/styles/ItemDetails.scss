@@ -1,0 +1,73 @@
+.item-detail {
+	&__wrapper {
+		background-color: #ffffff;
+		list-style-type: none;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 2fr;
+		gap: 16px 16px;
+		grid-auto-flow: row;
+		grid-template-areas:
+			"Image button"
+			"desc desc";
+		grid-column: 2 / -2;
+		padding: 32px;
+
+		&-img {
+			display: flex;
+			justify-content: center;
+			grid-area: Image;
+			width: 680px;
+		}
+
+		&-info {
+			display: flex;
+			flex-direction: column;
+			grid-area: button;
+			padding-inline-end: 32px;
+
+			&-eyebrow {
+				color: #999999;
+				font-size: 14px;
+				padding-bottom: 16px;
+			}
+
+			&-title {
+				color: #333333;
+				font-size: 24px;
+				margin: 0;
+				padding-bottom: 32px;
+			}
+
+			&-price {
+				font-size: 46px;
+				padding-bottom: 32px;
+			}
+
+			&-button {
+				background-color: #3483fa;
+				border: none;
+				border-radius: 4px;
+				color: #ffffff;
+				cursor: pointer;
+				padding-block: 16px;
+				width: 100%;
+			}
+		}
+
+		&-desc {
+			color: #999999;
+			grid-area: desc;
+			max-width: 680px;
+
+			h3 {
+				color: #333333;
+				font-size: 28px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+}

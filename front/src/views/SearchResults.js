@@ -9,8 +9,6 @@ const SearchResults = () => {
 	const [results, setResults] = useState([]);
 	const [loading, setLoading] = useState(false);
 
-	console.log(`Here is the query: ${query}`);
-
 	useEffect(() => {
 		const fetchDataAsync = async () => {
 			setLoading(true);
@@ -42,9 +40,10 @@ const SearchResults = () => {
 		<section className="items-list">
 			<ul className="items-list__list">
 				{results.map((item, index) => (
-					<li className="items-list__list-element">
+					<li key={index} className="items-list__list-element">
 						<Link
 							to={"/items/" + item.id}
+							state={{ id: item.id }}
 							className="items-list__list-element-link"
 						>
 							<img

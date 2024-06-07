@@ -2,10 +2,8 @@
 	"name": "mercadolibre",
 	"version": "1.0.0",
 	"description": "Mercado Libre Test",
-	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"test": "test",
 		"start": "node back/server.js",
 		"server": "nodemon back/server.js",
 		"client": "npm start --prefix front",

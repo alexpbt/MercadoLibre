@@ -1,16 +1,15 @@
 .items-list {
-	background-color: #eeeeee;
-
 	&__list {
 		list-style-type: none;
 		grid-column: 2 / -2;
+		padding-inline-start: 0;
 
 		&-element {
 			background-color: #ffffff;
 			border-bottom: thin solid #eee;
 			padding: 16px;
 			position: relative;
-			width: 100%;
+			max-width: 100%;
 
 			&-link {
 				color: #333333;
@@ -31,18 +30,23 @@
 			}
 
 			&-info {
-				&-dolar {
-					font-size: 24px;
-					padding-right: 0.2em;
-				}
+				max-width: 50%;
+				padding-block: 16px;
 
 				&-value {
+					display: block;
 					font-size: 24px;
+					padding-right: 0.2em;
+					padding-bottom: 32px;
+					position: relative;
 				}
 
 				&-title {
 					color: #999999;
+					display: block;
 					font-size: 18px;
+					margin-block: 0;
+					position: relative;
 				}
 			}
 		}

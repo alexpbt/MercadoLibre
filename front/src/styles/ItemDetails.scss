@@ -12,7 +12,7 @@
 		grid-template-columns: 1fr;
 		grid-template-rows: 2fr;
 		list-style-type: none;
-		padding: 32px;
+		padding: var(--padding-2);
 
 		@media (min-width: 1024px) {
 			grid-column: 2 / -2;
@@ -50,25 +50,25 @@
 			grid-area: button;
 
 			@media (min-width: 1024px) {
-				padding-inline-end: 32px;
+				padding-inline-end: var(--padding-2);
 			}
 
 			&-eyebrow {
 				color: #999999;
 				font-size: 14px;
-				padding-bottom: 16px;
+				padding-bottom: var(--padding-1);
 			}
 
 			&-title {
 				color: #333333;
 				font-size: 24px;
 				margin: 0;
-				padding-bottom: 32px;
+				padding-bottom: var(--padding-2);
 			}
 
 			&-price {
 				font-size: 46px;
-				padding-bottom: 32px;
+				padding-bottom: var(--padding-2);
 			}
 
 			&-button {
@@ -77,7 +77,7 @@
 				border: none;
 				color: #ffffff;
 				cursor: pointer;
-				padding-block: 16px;
+				padding-block: var(--padding-1);
 				width: 100%;
 			}
 		}

@@ -12,7 +12,7 @@
 			background-color: #ffffff;
 			border-bottom: thin solid #eee;
 			max-width: 100%;
-			padding: 16px;
+			padding: var(--padding-1);
 			position: relative;
 
 			&-link {
@@ -29,18 +29,18 @@
 			&-img {
 				border-radius: 4px;
 				height: 180px;
-				margin-inline-end: 16px;
+				margin-inline-end: var(--padding-1);
 				width: 180px;
 			}
 
 			&-info {
 				max-width: 50%;
-				padding-block: 16px;
+				padding-block: var(--padding-1);
 
 				&-value {
 					display: block;
 					font-size: 24px;
-					padding-bottom: 32px;
+					padding-bottom: var(--padding-2);
 					padding-inline-end: 0.2em;
 					position: relative;
 				}

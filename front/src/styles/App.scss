@@ -1,5 +1,9 @@
+$meli-black: #000000;
+$meli-yellow: #ffe600;
+$meli-body-bg: #eeeeee;
+
 body {
-	background-color: #eeeeee;
+	background-color: $meli-body-bg;
 }
 
 .App {
@@ -8,7 +12,7 @@ body {
 }
 
 .nav-header {
-	background-color: #ffe600;
+	background-color: $meli-yellow;
 	justify-content: center;
 	width: 100%;
 }
@@ -88,7 +92,7 @@ section {
 		}
 
 		&-button {
-			background-color: #eeeeee;
+			background-color: $meli-body-bg;
 			background-image: url("../../public/assets/meli-searchbar-icon.png");
 			background-position: center;
 			background-repeat: no-repeat;
@@ -98,7 +102,6 @@ section {
 			height: 38px;
 			inset-block-start: 1px;
 			inset-inline-start: calc(100% - 39px);
-			margin-inline-end: 73px;
 			position: absolute;
 			width: 38px;
 

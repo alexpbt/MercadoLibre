@@ -45,7 +45,7 @@ const ItemDetails = () => {
 			<section className="item-detail">
 				<div className="item-detail__wrapper">
 					<div className="item-detail__wrapper-img">
-						<img src={results.picture} alt={results.title} />
+						<img loading="lazy" src={results.picture} alt={results.title} />
 					</div>
 					<div className="item-detail__wrapper-info">
 						<span className="item-detail__wrapper-info-eyebrow">
@@ -59,10 +59,14 @@ const ItemDetails = () => {
 							Comprar
 						</button>
 					</div>
-					<div className="item-detail__wrapper-desc">
-						<h3>Descripción del producto</h3>
-						<p>{results.description}</p>
-					</div>
+					{results.description !== "" ? (
+						<div className="item-detail__wrapper-desc">
+							<h3>Descripción del producto</h3>
+							<p>{results.description}</p>
+						</div>
+					) : (
+						""
+					)}
 				</div>
 			</section>
 		</>

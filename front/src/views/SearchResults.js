@@ -53,6 +53,7 @@ const SearchResults = () => {
 								className="items-list__list-element-link"
 							>
 								<img
+									loading="lazy"
 									className="items-list__list-element-img"
 									src={item.picture}
 									alt={item.name}

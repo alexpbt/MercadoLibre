@@ -1,11 +1,7 @@
 import Header from "../components/Header";
 
 const SearchPage = () => {
-	return (
-		<>
-			<Header />
-		</>
-	);
+	return <Header />;
 };
 
 export { SearchPage };

@@ -9,21 +9,6 @@ function SearchBar() {
 		setQuery(e.target.value);
 	};
 
-	const keyboardEnterHandler = (e) => {
-		if (e.key === "Enter") {
-			setQuery(e.target.value);
-			searchItems();
-		}
-	};
-
-	const HandleSearchButtonClick = (e) => {
-		e.preventDefault();
-
-		if (query !== "") {
-			searchItems();
-		}
-	};
-
 	const searchItems = () => {
 		navigate(`/items?search=${query}`);
 	};
@@ -43,14 +28,9 @@ function SearchBar() {
 					className="meli-searchbar__form-input"
 					type="text"
 					onChange={HandleInputChange}
-					onKeyDown={keyboardEnterHandler}
 					placeholder="Buscar productos, marcas y más... "
 				/>
-				<button
-					onClick={HandleSearchButtonClick}
-					type="submit"
-					className="meli-searchbar__form-button"
-				></button>
+				<button type="submit" className="meli-searchbar__form-button"></button>
 			</form>
 		</div>
 	);

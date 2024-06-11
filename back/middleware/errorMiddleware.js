@@ -5,8 +5,8 @@ const notFound = (req, res, next) => {
 };
 
 const errorHandler = (err, req, res) => {
-	let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-	let message = res.statusCode === 500 ? "Coudn't retrieve data" : "OK";
+	const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+	const message = res.statusCode === 500 ? "Coudn't retrieve data" : "OK";
 
 	res.status(statusCode).json({
 		message,

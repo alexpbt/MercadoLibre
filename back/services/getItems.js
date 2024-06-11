@@ -8,7 +8,7 @@ const getMeLiItems = async (query, limit) => {
 
 		return parseItemsData(response.data);
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 };
 

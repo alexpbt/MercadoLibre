@@ -7,8 +7,12 @@ const Header = () => {
 		<header className="nav-header">
 			<section className="nav-content">
 				<div className="meli-logo">
-					<Link to={"/"}>
-						<img src="/assets/meli-logo.png" alt="Logo Mercadolibre" />
+					<Link to="/">
+						<img
+							loading="lazy"
+							src="/assets/meli-logo.png"
+							alt="Logo Mercadolibre"
+						/>
 					</Link>
 				</div>
 				<SearchBar />
